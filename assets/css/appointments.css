@@ -200,13 +200,13 @@
 /* ── Calendario ── */
 .sdc-datetime-wrap {
     display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 20px;
     margin-bottom: 24px;
 }
 .sdc-calendar-wrap {
-    flex: 0 0 auto;
-    width: 300px;
+    width: 100%;
+    max-width: 340px;
 }
 .sdc-cal-header {
     display: flex;
@@ -288,8 +288,7 @@
 
 /* ── Slots de hora ── */
 .sdc-slots-wrap {
-    flex: 1;
-    min-width: 180px;
+    width: 100%;
 }
 .sdc-slots-wrap h3 {
     font-size: 1rem;
@@ -302,8 +301,8 @@
     color: var(--sdc-muted);
 }
 .sdc-slots-grid {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
     gap: 10px;
 }
 .sdc-slot-btn {
@@ -410,8 +409,6 @@
 /* ── Responsive ── */
 @media (max-width: 560px) {
     .sdc-wrapper { padding: 20px 14px; }
-    .sdc-datetime-wrap { flex-direction: column; }
-    .sdc-calendar-wrap { width: 100%; }
     .sdc-phone-row { flex-direction: column; }
     .sdc-country-select { max-width: 100%; min-width: 100%; }
 }
