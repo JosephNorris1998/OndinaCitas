@@ -69,7 +69,7 @@ class SDC_Appointments {
             $h       = intdiv( $current, 60 );
             $m       = $current % 60;
             $label   = sprintf( '%02d:%02d', $h, $m );
-            $ampm_h  = $h > 12 ? $h - 12 : ( $h === 0 ? 12 : $h );
+            $ampm_h  = $h === 0 ? 12 : ( $h > 12 ? $h - 12 : $h );
             $ampm    = $h >= 12 ? 'pm' : 'am';
             $label12 = sprintf( '%d:%02d %s', $ampm_h, $m, $ampm );
             $slots[] = array(

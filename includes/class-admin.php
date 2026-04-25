@@ -70,7 +70,7 @@ class SDC_Admin {
         $start       = (int) get_option( 'sdc_schedule_start', 13 );
         $end         = (int) get_option( 'sdc_schedule_end', 18 );
         $duration    = (int) get_option( 'sdc_slot_duration', 60 );
-        $working_days = get_option( 'sdc_working_days', array( 1, 2, 3, 4, 5 ) );
+        $working_days = (array) get_option( 'sdc_working_days', array( 1, 2, 3, 4, 5 ) );
 
         $days_labels = array(
             0 => 'Domingo',
@@ -113,7 +113,7 @@ class SDC_Admin {
                                     <input type="checkbox"
                                         name="sdc_working_days[]"
                                         value="<?php echo esc_attr( $num ); ?>"
-                                        <?php checked( in_array( $num, (array) $working_days, true ) ); ?>
+                                        <?php checked( in_array( $num, $working_days, true ) ); ?>
                                     />
                                     <?php echo esc_html( $label ); ?>
                                 </label>

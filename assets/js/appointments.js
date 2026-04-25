@@ -389,7 +389,9 @@
     function formatDateLabel( iso ) {
         var parts = iso.split( '-' );
         if ( parts.length !== 3 ) { return iso; }
-        return parts[ 2 ] + ' de ' + MONTH_NAMES[ parseInt( parts[ 1 ], 10 ) - 1 ] + ' de ' + parts[ 0 ];
+        var monthIndex = parseInt( parts[ 1 ], 10 ) - 1;
+        if ( monthIndex < 0 || monthIndex > 11 ) { return iso; }
+        return parts[ 2 ] + ' de ' + MONTH_NAMES[ monthIndex ] + ' de ' + parts[ 0 ];
     }
 
 } )( jQuery );
