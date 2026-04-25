@@ -1,0 +1,417 @@
+/* ============================================================
+   Sistema de Citas Ondina – Estilos
+   ============================================================ */
+
+:root {
+    --sdc-primary:     #1a5276;
+    --sdc-primary-h:   #154360;
+    --sdc-accent:      #25d366;
+    --sdc-accent-h:    #1da851;
+    --sdc-text:        #2c3e50;
+    --sdc-muted:       #7f8c8d;
+    --sdc-border:      #d5d8dc;
+    --sdc-bg:          #f4f6f9;
+    --sdc-white:       #ffffff;
+    --sdc-radius:      10px;
+    --sdc-shadow:      0 4px 18px rgba(0,0,0,.10);
+    --sdc-transition:  .2s ease;
+}
+
+/* Contenedor principal */
+.sdc-wrapper {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    background: var(--sdc-white);
+    border-radius: var(--sdc-radius);
+    box-shadow: var(--sdc-shadow);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--sdc-text);
+}
+
+/* ── Indicador de pasos ── */
+.sdc-steps-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.sdc-step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.sdc-step-number {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--sdc-border);
+    color: var(--sdc-muted);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .9rem;
+    transition: background var(--sdc-transition), color var(--sdc-transition);
+}
+.sdc-step-label {
+    font-size: .72rem;
+    color: var(--sdc-muted);
+    transition: color var(--sdc-transition);
+    white-space: nowrap;
+}
+.sdc-step-indicator.active .sdc-step-number {
+    background: var(--sdc-primary);
+    color: var(--sdc-white);
+}
+.sdc-step-indicator.active .sdc-step-label {
+    color: var(--sdc-primary);
+    font-weight: 600;
+}
+.sdc-step-indicator.done .sdc-step-number {
+    background: var(--sdc-accent);
+    color: var(--sdc-white);
+}
+.sdc-step-divider {
+    flex: 1;
+    min-width: 24px;
+    height: 2px;
+    background: var(--sdc-border);
+    margin-bottom: 18px;
+}
+
+/* ── Paso – título ── */
+.sdc-step-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--sdc-primary);
+    margin: 0 0 24px;
+    border-bottom: 2px solid var(--sdc-bg);
+    padding-bottom: 12px;
+}
+
+/* ── Campos ── */
+.sdc-field-group {
+    margin-bottom: 20px;
+}
+.sdc-field-group label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: .93rem;
+}
+.sdc-field-group label span {
+    color: #c0392b;
+}
+.sdc-field-group input[type="text"],
+.sdc-field-group input[type="email"],
+.sdc-field-group input[type="tel"] {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--sdc-border);
+    border-radius: var(--sdc-radius);
+    font-size: 1rem;
+    transition: border-color var(--sdc-transition), box-shadow var(--sdc-transition);
+    box-sizing: border-box;
+    outline: none;
+}
+.sdc-field-group input:focus {
+    border-color: var(--sdc-primary);
+    box-shadow: 0 0 0 3px rgba(26,82,118,.12);
+}
+.sdc-field-group input.sdc-error {
+    border-color: #c0392b;
+}
+
+/* Fila teléfono */
+.sdc-phone-row {
+    display: flex;
+    gap: 8px;
+}
+.sdc-country-select {
+    flex: 0 0 auto;
+    min-width: 170px;
+    max-width: 200px;
+    padding: 10px 8px;
+    border: 1.5px solid var(--sdc-border);
+    border-radius: var(--sdc-radius);
+    font-size: .9rem;
+    background: var(--sdc-bg);
+    cursor: pointer;
+    outline: none;
+    transition: border-color var(--sdc-transition);
+}
+.sdc-country-select:focus {
+    border-color: var(--sdc-primary);
+}
+.sdc-phone-row input[type="tel"] {
+    flex: 1;
+}
+.sdc-phone-preview {
+    display: block;
+    margin-top: 5px;
+    font-size: .82rem;
+    color: var(--sdc-muted);
+}
+
+/* ── Servicios ── */
+.sdc-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.sdc-service-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 14px 16px;
+    border: 1.5px solid var(--sdc-border);
+    border-radius: var(--sdc-radius);
+    cursor: pointer;
+    transition: border-color var(--sdc-transition), background var(--sdc-transition), box-shadow var(--sdc-transition);
+    background: var(--sdc-bg);
+}
+.sdc-service-card:hover {
+    border-color: var(--sdc-primary);
+    background: #eaf1f8;
+}
+.sdc-service-card input[type="radio"] {
+    margin-top: 3px;
+    flex-shrink: 0;
+    accent-color: var(--sdc-primary);
+    width: 16px;
+    height: 16px;
+}
+.sdc-service-card.selected {
+    border-color: var(--sdc-primary);
+    background: #d6e8f5;
+    box-shadow: 0 0 0 3px rgba(26,82,118,.12);
+}
+.sdc-service-label {
+    font-size: .91rem;
+    line-height: 1.4;
+}
+
+/* ── Calendario ── */
+.sdc-datetime-wrap {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+.sdc-calendar-wrap {
+    flex: 0 0 auto;
+    width: 300px;
+}
+.sdc-cal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+.sdc-cal-header span {
+    font-weight: 700;
+    color: var(--sdc-primary);
+    font-size: 1rem;
+    text-transform: capitalize;
+}
+.sdc-cal-nav {
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--sdc-primary);
+    padding: 0 6px;
+    line-height: 1;
+    transition: color var(--sdc-transition);
+}
+.sdc-cal-nav:hover { color: var(--sdc-primary-h); }
+.sdc-cal-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-size: .75rem;
+    font-weight: 700;
+    color: var(--sdc-muted);
+    margin-bottom: 6px;
+}
+.sdc-cal-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+.sdc-cal-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: .88rem;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    transition: background var(--sdc-transition), color var(--sdc-transition);
+    padding: 0;
+    font-family: inherit;
+}
+.sdc-cal-day:hover:not(:disabled) {
+    background: #eaf1f8;
+}
+.sdc-cal-day.selected {
+    background: var(--sdc-primary);
+    color: var(--sdc-white);
+    font-weight: 700;
+}
+.sdc-cal-day:disabled,
+.sdc-cal-day.disabled {
+    color: var(--sdc-border);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+.sdc-cal-day.today {
+    border: 2px solid var(--sdc-primary);
+    color: var(--sdc-primary);
+    font-weight: 700;
+}
+.sdc-cal-day.today.selected {
+    color: var(--sdc-white);
+}
+.sdc-cal-day.empty {
+    cursor: default;
+    pointer-events: none;
+}
+
+/* ── Slots de hora ── */
+.sdc-slots-wrap {
+    flex: 1;
+    min-width: 180px;
+}
+.sdc-slots-wrap h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--sdc-primary);
+    margin: 0 0 10px;
+}
+.sdc-slots-hint {
+    font-size: .85rem;
+    color: var(--sdc-muted);
+}
+.sdc-slots-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.sdc-slot-btn {
+    padding: 10px 16px;
+    border: 1.5px solid var(--sdc-border);
+    border-radius: var(--sdc-radius);
+    background: var(--sdc-bg);
+    cursor: pointer;
+    font-size: .92rem;
+    font-family: inherit;
+    transition: border-color var(--sdc-transition), background var(--sdc-transition), box-shadow var(--sdc-transition);
+}
+.sdc-slot-btn:hover {
+    border-color: var(--sdc-primary);
+    background: #eaf1f8;
+}
+.sdc-slot-btn.selected {
+    background: var(--sdc-primary);
+    color: var(--sdc-white);
+    border-color: var(--sdc-primary);
+    font-weight: 700;
+    box-shadow: 0 0 0 3px rgba(26,82,118,.12);
+}
+
+/* ── Resumen ── */
+.sdc-summary {
+    background: var(--sdc-bg);
+    border-radius: var(--sdc-radius);
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+.sdc-summary-row {
+    display: flex;
+    gap: 8px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--sdc-border);
+    font-size: .95rem;
+}
+.sdc-summary-row:last-child { border-bottom: none; }
+.sdc-summary-row strong { min-width: 90px; color: var(--sdc-primary); }
+.sdc-whatsapp-note {
+    font-size: .88rem;
+    color: var(--sdc-muted);
+    margin-bottom: 20px;
+}
+
+/* ── Botones ── */
+.sdc-nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+}
+.sdc-btn {
+    padding: 11px 24px;
+    border: none;
+    border-radius: var(--sdc-radius);
+    font-size: .95rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background var(--sdc-transition), transform var(--sdc-transition);
+}
+.sdc-btn:active { transform: scale(.97); }
+.sdc-btn-next {
+    background: var(--sdc-primary);
+    color: var(--sdc-white);
+}
+.sdc-btn-next:hover { background: var(--sdc-primary-h); }
+.sdc-btn-back {
+    background: var(--sdc-bg);
+    color: var(--sdc-text);
+    border: 1.5px solid var(--sdc-border);
+}
+.sdc-btn-back:hover { background: var(--sdc-border); }
+.sdc-btn-whatsapp {
+    background: var(--sdc-accent);
+    color: var(--sdc-white);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 28px;
+    font-size: 1rem;
+}
+.sdc-btn-whatsapp:hover { background: var(--sdc-accent-h); }
+.sdc-btn-whatsapp svg {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+/* ── Ocultar ── */
+.sdc-hidden { display: none !important; }
+
+/* ── Mensaje de error inline ── */
+.sdc-inline-error {
+    color: #c0392b;
+    font-size: .82rem;
+    margin-top: 4px;
+    display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 560px) {
+    .sdc-wrapper { padding: 20px 14px; }
+    .sdc-datetime-wrap { flex-direction: column; }
+    .sdc-calendar-wrap { width: 100%; }
+    .sdc-phone-row { flex-direction: column; }
+    .sdc-country-select { max-width: 100%; min-width: 100%; }
+}
